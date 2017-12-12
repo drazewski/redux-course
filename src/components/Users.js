@@ -1,7 +1,7 @@
 import React from 'react'
 
 function UserInfo(props) {
-    console.log(props.userProps);
+    
     return (
         <div className="UserInfo">
             <div className="UserInfo-name">
