@@ -44,6 +44,11 @@ li{
   list-style: none;
 }
 
+
+.single-user {
+  border-top: 2px solid #000;
+}
+
 .UserInfo {
   width: 20%;
   margin: auto;

@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import Users from './components/Users'
+import Users from './components/Users';
 
 export class App extends Component {
   render() {
@@ -28,14 +28,21 @@ export class App extends Component {
 }
 
 
-export class Comp extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Users userProps={this.props.users}/>
-      </div>
-    )
-  }
-}
+// export class Comp extends Component {
+//   render() {
+//     return (
+//       <div className="container">
+//         <Users userProps={this.props.users}/>
+//       </div>
+//     );
+//   }
+// }
 
+export const Comp = function (props) {
+  return (
+    <div className="container">
+      <Users userProps={props.users} />
+    </div>
+  );
+};
 
