@@ -22,11 +22,26 @@ const usersList = {
     ]
 };
 
-const element = <h1>Hello, world!</h1>;
+//const element = <h1>Hello, world!</h1>;
+
+// const element = React.createElement(  
+// 'h1', null, 'Hello, world!'
+// );
+
+const Element = function(dupa) {
+
+    var style = {
+        color: dupa.color
+    }
+
+    return (
+        <h1 style={style}>{dupa.title}</h1>
+    );
+}
 
 ReactDOM.render(<App todosProps={state.todos}/>, document.getElementById('root'));
 
-ReactDOM.render(element, document.getElementById('info'));
+ReactDOM.render(<Element title='Taki sobie tytuł' color="#fa0"/>, document.getElementById('info'));
 
 ReactDOM.render(<Comp users={usersList.users} />, document.getElementById('content'));
 registerServiceWorker();
