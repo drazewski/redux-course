@@ -59,3 +59,10 @@ li{
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+super-super {
+  color: #f0a;
+  display: block;
+  margin-top: 50px;
+  text-align: center;
+}

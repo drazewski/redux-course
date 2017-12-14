@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
 import {App, Comp} from './App';
+//import SuperSuper from './Super';
 import registerServiceWorker from './registerServiceWorker';
 
 const state = {
@@ -39,6 +40,23 @@ const Element = function(dupa) {
     );
 }
 
+// customElements.define('super-super', class extends HTMLElement {
+//     connectedCallback() {
+//         this.innerHTML = "<b>I'm an x-foo-with-markup!</b>";
+//     }
+// });
+
+const customElementName = 'super-super';
+var playerElement = document.createElement(customElementName);
+
+document.querySelector('body').appendChild(playerElement);
+
+document.querySelector('super-super').innerHTML = 'To jest super element gdzies na dole';
+document.querySelector('super-super').setAttribute('id', 'dad');
+
+customElements.whenDefined('super-super').then(() => {
+    console.log('app-drawer defined');
+});
 ReactDOM.render(<App todosProps={state.todos}/>, document.getElementById('root'));
 
 ReactDOM.render(<Element title='Taki sobie tytuł' color="#fa0"/>, document.getElementById('info'));
