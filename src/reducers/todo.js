@@ -3,12 +3,17 @@ const initState = {
     todos: []
 }
 
-// export default (state=initState, action) => {
+export default (state=initState, action) => {
+    switch (action.type) {
+        case 'TODO_ADD': 
+            return {...state, todos: state.todos.concat(action.payload)}
+        default:
+            return state;
+    }
+}
+
+
+
+// export function reducer(state = initState, action) {
 //     return state
 // }
-
-
-
-export function reducer(state = initState, action) {
-    return state
-}
