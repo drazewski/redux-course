@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import { connect } from "react-redux";
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import Users from './components/Users';
+//import Users from './components/Users';
 
-export class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.state = { text: 'Not clicked!' };
@@ -24,7 +25,7 @@ export class App extends Component {
         </header>
         <div className="wrapper">
           <div className="todo-points">
-            <form> 
+            <form onSubmit={event => { event.preventDefault(); }} > 
              <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.changeCurrent}/>
               <TodoList todosListProps={this.props.todos}/>
             </form>
@@ -36,22 +37,6 @@ export class App extends Component {
   }
 }
 
-
-// export class Comp extends Component {
-//   render() {
-//     return (
-//       <div className="container">
-//         <Users userProps={this.props.users}/>
-//       </div>
-//     );
-//   }
-// }
-
-export const Comp = function (props) {
-  return (
-    <div className="container">
-      <Users userProps={props.users} />
-    </div>
-  );
-};
-
+const mapStateToProps = (state) => state
+const ConnectedApp = connect(mapStateToProps)(App)
+export default ConnectedApp
