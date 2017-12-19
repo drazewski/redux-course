@@ -24,9 +24,9 @@ export class App extends Component {
         </header>
         <div className="wrapper">
           <div className="todo-points">
-            <form>
-             <TodoForm />
-              <TodoList todosListProps={this.props.todosProps}/>
+            <form> 
+             <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.changeCurrent}/>
+              <TodoList todosListProps={this.props.todos}/>
             </form>
           </div>
           <div id="info"></div>

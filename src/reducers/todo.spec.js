@@ -26,7 +26,7 @@ describe('Todo REducer', () => {
       ]
     }
 
-    const action = { type: 'TODO_ADD', payload: { id: 4, name: 'choice 4', isComplete: false } }
+    const action = { payload: { id: 4, name: 'choice 4', isComplete: false } }
     const result = reducer(startState, action)
     expect(result).toEqual(expectedState);
   })

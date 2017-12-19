@@ -5,14 +5,17 @@ import './index.css';
 import {App, Comp} from './App';
 //import SuperSuper from './Super';
 import registerServiceWorker from './registerServiceWorker';
+import store from "./store";
+import { bindActionCreators } from 'redux'
+import {updateCurrent} from "./reducers/todo.js";
 
-const state = {
-    todos: [
-        { id: 1, name: 'choice 1', isComplete: true },
-        { id: 2, name: 'choice 2', isComplete: true },
-        { id: 3, name: 'choice 3', isComplete: true }
-    ] 
-};
+// const state = {
+//     todos: [
+//         { id: 1, name: 'choice 1', isComplete: true },
+//         { id: 2, name: 'choice 2', isComplete: true },
+//         { id: 3, name: 'choice 3', isComplete: true }
+//     ] 
+// };
 
 const usersList = {
     users: [
@@ -22,12 +25,6 @@ const usersList = {
         { name: 'Heniek', age: 22 } 
     ]
 };
-
-//const element = <h1>Hello, world!</h1>;
-
-// const element = React.createElement(  
-// 'h1', null, 'Hello, world!'
-// );
 
 const Element = function(dupa) {
 
@@ -40,24 +37,24 @@ const Element = function(dupa) {
     );
 }
 
-// customElements.define('super-super', class extends HTMLElement {
-//     connectedCallback() {
-//         this.innerHTML = "<b>I'm an x-foo-with-markup!</b>";
-//     }
-// });
-
 const customElementName = 'super-super';
 var playerElement = document.createElement(customElementName);
 
 document.querySelector('body').appendChild(playerElement);
-
 document.querySelector('super-super').innerHTML = 'To jest super element gdzies na dole';
 document.querySelector('super-super').setAttribute('id', 'dad');
-
 customElements.whenDefined('super-super').then(() => {
     console.log('app-drawer defined');
 });
-ReactDOM.render(<App todosProps={state.todos}/>, document.getElementById('root'));
+const actions = bindActionCreators({updateCurrent}, store.dispatch)
+//const todoChangeHandler = (val) => store.dispatch(updateCurrent(val));
+const render = () => {
+    const state = store.getState();
+    ReactDOM.render(<App todos={state.todos} currentTodo={state.currentTodo} changeCurrent={actions.updateCurrent}/>, document.getElementById('root'));
+} 
+render()
+
+store.subscribe(render);
 
 ReactDOM.render(<Element title='Taki sobie tytuł' color="#fa0"/>, document.getElementById('info'));
 
