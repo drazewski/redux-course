@@ -7,7 +7,7 @@ const initState = {
    currentTodo: ''
 }
 
-export const updateCurrent = (val) => ({ type: 'CURRENT_UPDATE', payload: val })
+export const updateCurrent = (val) => ({ type: 'CURRENT_UPDATE', dupa: val })
 
 export default (state = initState, action) => {
   
@@ -15,7 +15,7 @@ export default (state = initState, action) => {
 		case 'TODO_APP':
       return state;
     case 'CURRENT_UPDATE':
-      return {...state, currentTodo: action.payload};
+      return {...state, currentTodo: action.dupa};
       
     default: 
       return state;
