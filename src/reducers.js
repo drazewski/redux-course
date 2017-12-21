@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
 import todo from './reducers/todo';
 import click from './reducers/click';
+import counter from './reducers/counterReducer';
 
 
 /**
  * Turns different reducing functions into a single reducing function
  */
-const AppReducer = combineReducers({
+const Reducers = combineReducers({
   todo,
-  click
+  click, 
+  counter
 });
 //console.log()
-export default AppReducer;
+export default Reducers;

@@ -1,7 +1,7 @@
 import { CLICKED, NOT_CLICKED } from '../actions/clickAction';
 
 const clickEvent = (state = {
-  clicked: true,
+    clicked: false,
 }, action) => {
   switch (action.type) {
     case CLICKED:
