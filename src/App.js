@@ -5,8 +5,10 @@ import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import Counter from './components/Counter';
+//import smallcounter from './reducers/counterReducer';
 //import { bindActionCreators } from 'redux'
 import {updateCurrent} from "./reducers/todo.js";
+import { increment, decrement } from "./actions/counterAction"
 //import Users from './components/Users';
 import store from './store';
 
@@ -15,27 +17,27 @@ class App extends Component {
     super();
   }
   
-
   render() {
-    
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to React  </h1>
+          <span className={console.log(store.getState().counter)} style={{color: '#fff'}}> {store.getState().counter.clickCounter}</span>
+          
         </header>
         <div className="wrapper">
           <div className="todo-points">
             <form onSubmit={event => { event.preventDefault(); }} > 
-             <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.updateCurrent}/>
+              <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.updateCurrent}/>
               <TodoList todosListProps={this.props.todo.todos}/>
             </form>
-          </div>
+          </div>{this.props.counter.clickCounter}
           <div id="info" >
           <Counter 
           value={store.getState().counter.clickCounter} 
-          onIncrement={() => store.dispatch({type: 'INCREMENT'})}
-          onDecrement={() => store.dispatch({type: 'DECREMENT'})}
+          onIncrement={() => store.dispatch(increment())}
+          onDecrement={() => store.dispatch(decrement())}
           />
           </div>
         </div>
@@ -44,8 +46,17 @@ class App extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  console.log('state', state);
+  return {
+    todo: state.todo,
+    counter: state.counter
+  }
+}
 
-export default connect(
-  (state) => state,
-  {updateCurrent}
-)(App)
+export default connect(mapStateToProps)(App)
+
+//export default connect(
+//   (state) => state,
+//   {updateCurrent}
+// )(App)
