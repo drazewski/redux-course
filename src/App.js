@@ -23,16 +23,16 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React  </h1>
-          <span className={console.log(store.getState().counter)} style={{color: '#fff'}}> {store.getState().counter.clickCounter}</span>
+          <span style={{color: '#fff'}}> {store.getState().counter.clickCounter}</span>
           
         </header>
         <div className="wrapper">
           <div className="todo-points">
-            <form onSubmit={event => { event.preventDefault(); }} > 
+            <form className={console.log(this)} onSubmit={event => { event.preventDefault(); }} > 
               <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.updateCurrent}/>
               <TodoList todosListProps={this.props.todo.todos}/>
             </form>
-          </div>{this.props.counter.clickCounter}
+          </div>
           <div id="info" >
           <Counter 
           value={store.getState().counter.clickCounter} 
@@ -54,6 +54,7 @@ function mapStateToProps(state) {
   }
 }
 
+//export default App
 export default connect(mapStateToProps)(App)
 
 //export default connect(
