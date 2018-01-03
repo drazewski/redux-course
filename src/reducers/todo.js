@@ -1,3 +1,6 @@
+import { INCREMENT, DECREMENT } from '../actions/counterAction';
+import { CURRENT_UPDATE } from '../actions/todoAction';
+ 
 const initState = {
 	todos: [
 		 { id: 1, name: 'choice 11', isComplete: true },
@@ -7,15 +10,13 @@ const initState = {
    currentTodo: ''
 }
 
-export const updateCurrent = (val) => ({ type: 'CURRENT_UPDATE', dupa: val })
-
 export default (state = initState, action) => {
   
 	switch (action.type) {
 		case 'TODO_APP':
       return state;
     case 'CURRENT_UPDATE':
-      return {...state, currentTodo: action.dupa};
+      return {...state, currentTodo: action.value};
       
     default: 
       return state;

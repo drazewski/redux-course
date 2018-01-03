@@ -20,16 +20,4 @@ const counter = ( counter = {clickCounter: 0, dupa: 'aaa'}, action ) => {
 	}
 }
 
-// const counter = ( clickCounter=0, action ) => {
-	
-// 	switch (action.type) {
-// 		case "INCREMENT":
-//     	return clickCounter = clickCounter + 1
-//     case "DECREMENT":
-// 			return clickCounter = clickCounter - 1
-// 		default:
-// 			return clickCounter;
-// 	}
-// }
-
 export default counter;

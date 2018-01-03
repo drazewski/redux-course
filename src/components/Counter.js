@@ -7,7 +7,8 @@ class Counter extends Component {
   render() {
     return(
       <div>
-        <h1 style={console.log(this.props.value)}>{this.props.value}</h1>
+        {console.log('renderuje counter')}
+        <h1>{this.props.value}</h1>
         <button onClick={this.props.onIncrement}>+</button>
         <button onClick={this.props.onDecrement}>-</button>
       </div>

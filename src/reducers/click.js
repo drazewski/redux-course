@@ -1,4 +1,4 @@
-import { CLICKED, NOT_CLICKED } from '../actions/clickAction';
+import { CLICKED } from '../actions/clickAction';
 
 const clickEvent = (state = {
     clicked: false,
@@ -8,11 +8,6 @@ const clickEvent = (state = {
       return {
         ...state,
         clicked: true,
-      };
-    case NOT_CLICKED:
-      return {
-        ...state,
-        clicked: false,
       };
     default:
       return state;
