@@ -1,5 +1,5 @@
-import { INCREMENT, DECREMENT } from '../actions/counterAction';
-import { CURRENT_UPDATE } from '../actions/todoAction';
+
+//simport { CURRENT_UPDATE } from '../actions/todoAction';
  
 const initState = {
 	todos: [

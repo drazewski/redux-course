@@ -1,4 +1,4 @@
-import {INCREMENT, DECREMENT} from '../actions/counterAction';
+//import {INCREMENT, DECREMENT} from '../actions/counterAction';
 
 const counter = ( counter = {clickCounter: 0, dupa: 'aaa'}, action ) => {
 	

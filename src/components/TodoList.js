@@ -1,18 +1,24 @@
-import React from 'react';
+import React from 'react'; 
+import { connect } from "react-redux";
 
-export default (props) => (
+const TodoList = (props) => {
 
-  <div className="todo-list">
-    {console.log('renderuje todolist')}
-		{
-				props.todosListProps.map(todo => (
+    const {todo} = props
+  return(
+    <div className="todo-list">
+    {console.log(todo)}
+    {
+        props.todo.todos.map(todo => (
         <li key={todo.id} >
             <input type="checkbox" defaultChecked={todo.isComplete} />
           {todo.name}
           </li>
-				))
-		}
+        ))
+    }
     </div>
+  )
+}
 
-);
-
+export default connect(
+(state) => ({todo: state.todo})
+)(TodoList)

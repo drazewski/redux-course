@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Counter from './components/Counter';
 import {Provider} from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 import store from "./store";
