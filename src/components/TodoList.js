@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 
 const TodoList = (props) => {
 
-    const {todo} = props
+    //const {todo} = props
   return(
     <div className="todo-list">
-    {console.log(todo)}
     {
         props.todo.todos.map(todo => (
         <li key={todo.id} >
-            <input type="checkbox" defaultChecked={todo.isComplete} />
+          <input type="checkbox" defaultChecked={todo.isComplete} />
           {todo.name}
-          </li>
+           
+        </li>
         ))
     }
     </div>
@@ -20,5 +20,5 @@ const TodoList = (props) => {
 }
 
 export default connect(
-(state) => ({todo: state.todo})
+  (state) => ({ todo: state.todo })
 )(TodoList)

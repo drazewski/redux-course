@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm';
@@ -11,7 +12,7 @@ import Counter from './components/Counter'
 
 import store from './store';
 
-export default class App extends Component {
+class App extends Component {
   
   render() {
     return (
@@ -23,7 +24,7 @@ export default class App extends Component {
         </header>
         <div className="wrapper">
           <div className="todo-points">
-            <form className={console.log(this.props)} onSubmit={event => { event.preventDefault(); }} > 
+            <form onSubmit={event => { event.preventDefault(); }} > 
               <TodoForm />
               <TodoList />
             </form>
@@ -38,12 +39,18 @@ export default class App extends Component {
   }
 }
 
+// export default App
+
 // function mapStateToProps(state) {
 //   return state
 // }
 
+function mapStateToProps(state) {
+  return {
+    counter: state.counter
+  }
+}
 
-// export default connect(
-//   mapStateToProps,
-//   {updateCurrent, decrement, increment, click}
-// )(App)
+export default connect(
+  mapStateToProps,
+)(App)

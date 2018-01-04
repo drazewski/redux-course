@@ -8,7 +8,6 @@ const TodoForm = (props) => {
   
   return(
     <div>
-      {console.log(props)}
       <input type="text" onClick={click}  onChange={event => { const val = event.target.value; updateCurrent(val) }} val={currentTodo}/> <br></br>
     </div>
   )
