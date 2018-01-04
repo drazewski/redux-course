@@ -1,15 +1,10 @@
 import { isComplete } from "../actions/todoAction";
 
-
 //import { index } from '../actions/todoAction';
  
 const initState = {
-	todos: [
-		 { id: 1, name: 'choice 11', isComplete: true },
-		 { id: 2, name: 'choice 2', isComplete: true },
-		 { id: 3, name: 'choice 3', isComplete: true }
-   ],
-   currentTodo: ''
+	todos: [],
+  currentTodo: ''
 }
 
 export default (state = initState, action) => {
@@ -19,6 +14,8 @@ export default (state = initState, action) => {
       return state;
     case 'CURRENT_UPDATE':
       return {...state, currentTodo: action.value};
+    case 'TODOS_LOAD':
+      return {...state, todos: action.payload};
     case 'IS_COMPLETE':
       let newTodos = state.todos.map((item, index) => {
         if (index !== action.ids) {
