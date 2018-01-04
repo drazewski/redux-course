@@ -1,5 +1,7 @@
+import { isComplete } from "../actions/todoAction";
 
-//simport { CURRENT_UPDATE } from '../actions/todoAction';
+
+//import { index } from '../actions/todoAction';
  
 const initState = {
 	todos: [
@@ -17,9 +19,18 @@ export default (state = initState, action) => {
       return state;
     case 'CURRENT_UPDATE':
       return {...state, currentTodo: action.value};
-      
+    case 'IS_COMPLETE':
+      let newTodos = state.todos.map((item, index) => {
+        if (index !== action.ids) {
+          return item;
+        }
+        return {
+          ...item,
+         isComplete: ! item.isComplete
+        };
+      })
+      return {...state, todos: newTodos}
     default: 
       return state;
   }
-  
 }
