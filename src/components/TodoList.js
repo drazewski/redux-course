@@ -1,16 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react'; 
+import { connect } from "react-redux";
+import { isComplete } from "../actions/todoAction"
+import { fetchTodos } from "../actions/fetchTodosAction"
 
-export default (props) => (
+class TodoList extends Component {
 
-  <div className="todo-list">{console.log({props})}
-		{
-				props.todosListProps.map(todo => (
-          <li>
-            <input type="checkbox" defaultChecked={todo.isComplete} />
-          {todo.name}
+  componentDidMount() {
+    this.props.fetchTodos()
+  }
+
+  render() {
+    return(
+      <div className="todo-list">
+        <ul>
+      {
+          this.props.todo.todos.map(todo => (
+          <li key={todo.id} >
+              <input type="checkbox" onClick={() => isComplete(todo.id)} defaultChecked={todo.isComplete} />
+            {todo.name}
+            
           </li>
-				))
-		}
-		</div>
-);
+          ))
+      }
+      </ul>
+      </div>
+    )
+  }
+}
 
+export default connect(
+  (state) => ({ todo: state.todo }),
+  { isComplete, fetchTodos }
+)(TodoList)
