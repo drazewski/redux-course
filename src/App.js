@@ -13,6 +13,16 @@ import Counter from './components/Counter'
 import store from './store';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = { say: "" };
+  }
+
+  update(e) {
+   this.setState({say: this.a.value});
+   console.log(this.a);
+  }
   
   render() {
     return (
@@ -28,6 +38,10 @@ class App extends Component {
               <TodoForm />
               <TodoList />
             </form>
+          </div>
+          <div>
+            Co chcesz powiedziec: <input type="text" ref={(node) => {this.a = node}} onChange={this.update.bind(this)} />
+            {this.state.say}
           </div>
           <div id="info" >
           <Counter 
